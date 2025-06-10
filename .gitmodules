@@ -1,0 +1,3 @@
+[submodule "recipe-server"]
+	path = recipe-server
+	url = git@github.com:edibblepdx/recipe-server.git
