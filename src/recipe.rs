@@ -19,7 +19,7 @@ pub struct Recipe {
 pub async fn fetch(endpoint: String) -> Result<Recipe, Error> {
     use reqwasm::http::Request;
 
-    let endpoint = format!("http://localhost:3000/api/vi/recipe/{}", endpoint);
+    let endpoint = format!("http://localhost:3000/api/v1/recipe/{}", endpoint);
     let result = Request::get(&endpoint).send().await?.json().await?;
     Ok(result)
 }

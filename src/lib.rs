@@ -92,6 +92,8 @@ fn FetchRecipe() -> impl IntoView {
                 set_input=set_input
                 placeholder="cuisine (optional)"
             />
+            // change the endpoint whenever input changes
+            {move || set_endpoint.set(format!("cuisine/{}", input.get()))}
         </div>
     }
 }
