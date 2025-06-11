@@ -14,11 +14,17 @@ pub fn App() -> impl IntoView {
     }
 }
 
-/// text: &str {default text}
+/// Form Submit that gives input to some outer scope
+/// Leptos book chapters 3.3 and 3.6
 #[component]
-fn FormSubmit<'a>(set_input: WriteSignal<String>, text: &'a str) -> impl IntoView {
-    // Leptos book chapter 3.6
-
+fn FormSubmit<'a>(
+    /// write signal
+    #[prop(into)]
+    set_input: WriteSignal<String>,
+    /// default text
+    #[prop(optional)]
+    text: &'a str,
+) -> impl IntoView {
     let input_element: NodeRef<html::Input> = NodeRef::new();
 
     let on_submit = move |ev: SubmitEvent| {
