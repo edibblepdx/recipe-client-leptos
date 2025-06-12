@@ -21,3 +21,6 @@ See `recipe-server` for more details.
 
 ## To run the client
 Simply run `trunk serve --open` from the root of the project.
+
+## License
+This work is made available under the "MIT License". See the file `LICENSE.txt` in this distribution for license terms.
