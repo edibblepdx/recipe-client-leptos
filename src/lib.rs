@@ -79,8 +79,14 @@ fn FetchRecipe() -> impl IntoView {
                 placeholder="cuisine (optional)"
             />
             <br/>
-            // change the endpoint whenever input changes
-            {move || set_endpoint.set(format!("cuisine/{}", input.get()))}
+            {move || {
+                // change the endpoint on form submit
+                if input.get().is_empty() {
+                    set_endpoint.set(format!("random"))
+                } else {
+                    set_endpoint.set(format!("cuisine/{}", input.get()))
+                }
+            }}
         </div>
         <div>
             <Transition fallback=|| view! { <div>"Loading..."</div> }>
