@@ -1,0 +1,34 @@
+.name {
+    font-weight: bold;
+}
+
+.field {
+    font-style: italic;
+}
+
+.annotation {
+    font-style: italic;
+    font-size: 60%;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 150%;
+}
+
+li {
+    font-style: italic;
+}
+
+.form {
+    font-weight: bold;
+}
+
+.recipe {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.error {
+    color: #881111;
+}

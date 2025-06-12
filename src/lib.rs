@@ -72,6 +72,16 @@ fn FetchRecipe() -> impl IntoView {
     let (input, set_input) = signal("".to_string());
 
     view! {
+        <div class="form">
+            <p>"New Recipe"</p>
+            <FormSubmit
+                set_input=set_input
+                placeholder="cuisine (optional)"
+            />
+            <br/>
+            // change the endpoint whenever input changes
+            {move || set_endpoint.set(format!("cuisine/{}", input.get()))}
+        </div>
         <div>
             <Transition fallback=|| view! { <div>"Loading..."</div> }>
                 <ErrorBoundary fallback>
@@ -85,15 +95,6 @@ fn FetchRecipe() -> impl IntoView {
                 })}
                 </ErrorBoundary>
             </Transition>
-        </div>
-        <div class="new-recipe">
-            <h4>"New Recipe"</h4>
-            <FormSubmit
-                set_input=set_input
-                placeholder="cuisine (optional)"
-            />
-            // change the endpoint whenever input changes
-            {move || set_endpoint.set(format!("cuisine/{}", input.get()))}
         </div>
     }
 }
